@@ -1,0 +1,4 @@
+period_days,period_label,target_hours
+30,First 30 days,20
+120,First 120 days,100
+150,First 150 days,100

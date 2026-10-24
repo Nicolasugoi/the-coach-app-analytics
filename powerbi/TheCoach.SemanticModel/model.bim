@@ -1,0 +1,778 @@
+{
+  "name": "TheCoach",
+  "compatibilityLevel": 1567,
+  "model": {
+    "culture": "en-US",
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "Cohort",
+        "columns": [
+          {
+            "name": "cohort",
+            "dataType": "string",
+            "sourceColumn": "cohort",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Cohort",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Folder = if Text.EndsWith(DataFolder, \"/\") or Text.EndsWith(DataFolder, \"\\\") then DataFolder else DataFolder & \"/\",",
+                "    Source = Csv.Document(File.Contents(Folder & \"cohort.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"cohort\", type text}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Plan",
+        "columns": [
+          {
+            "name": "plan",
+            "dataType": "string",
+            "sourceColumn": "plan",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Plan",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Folder = if Text.EndsWith(DataFolder, \"/\") or Text.EndsWith(DataFolder, \"\\\") then DataFolder else DataFolder & \"/\",",
+                "    Source = Csv.Document(File.Contents(Folder & \"plan.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"plan\", type text}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Period",
+        "columns": [
+          {
+            "name": "period_days",
+            "dataType": "int64",
+            "sourceColumn": "period_days",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "period_label",
+            "dataType": "string",
+            "sourceColumn": "period_label",
+            "summarizeBy": "none",
+            "sortByColumn": "period_days"
+          },
+          {
+            "name": "target_hours",
+            "dataType": "double",
+            "sourceColumn": "target_hours",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Period",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Folder = if Text.EndsWith(DataFolder, \"/\") or Text.EndsWith(DataFolder, \"\\\") then DataFolder else DataFolder & \"/\",",
+                "    Source = Csv.Document(File.Contents(Folder & \"period.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"period_days\", Int64.Type}, {\"period_label\", type text}, {\"target_hours\", type number}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Week",
+        "columns": [
+          {
+            "name": "week_index",
+            "dataType": "int64",
+            "sourceColumn": "week_index",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "week_label",
+            "dataType": "string",
+            "sourceColumn": "week_label",
+            "summarizeBy": "none",
+            "sortByColumn": "week_index"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Week",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Folder = if Text.EndsWith(DataFolder, \"/\") or Text.EndsWith(DataFolder, \"\\\") then DataFolder else DataFolder & \"/\",",
+                "    Source = Csv.Document(File.Contents(Folder & \"week.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"week_index\", Int64.Type}, {\"week_label\", type text}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Module",
+        "columns": [
+          {
+            "name": "module",
+            "dataType": "string",
+            "sourceColumn": "module",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "module_label",
+            "dataType": "string",
+            "sourceColumn": "module_label",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Module",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Folder = if Text.EndsWith(DataFolder, \"/\") or Text.EndsWith(DataFolder, \"\\\") then DataFolder else DataFolder & \"/\",",
+                "    Source = Csv.Document(File.Contents(Folder & \"module.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"module\", type text}, {\"module_label\", type text}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Goals",
+        "columns": [
+          {
+            "name": "cohort",
+            "dataType": "string",
+            "sourceColumn": "cohort",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "plan",
+            "dataType": "string",
+            "sourceColumn": "plan",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "period_days",
+            "dataType": "int64",
+            "sourceColumn": "period_days",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "target_hours",
+            "dataType": "double",
+            "sourceColumn": "target_hours",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "eligible_users",
+            "dataType": "int64",
+            "sourceColumn": "eligible_users",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "study_users",
+            "dataType": "int64",
+            "sourceColumn": "study_users",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "goal_users",
+            "dataType": "int64",
+            "sourceColumn": "goal_users",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "study_hours",
+            "dataType": "double",
+            "sourceColumn": "study_hours",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "app_hours",
+            "dataType": "double",
+            "sourceColumn": "app_hours",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "study_days",
+            "dataType": "int64",
+            "sourceColumn": "study_days",
+            "summarizeBy": "none",
+            "isHidden": true
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Goals",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Folder = if Text.EndsWith(DataFolder, \"/\") or Text.EndsWith(DataFolder, \"\\\") then DataFolder else DataFolder & \"/\",",
+                "    Source = Csv.Document(File.Contents(Folder & \"goals.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"cohort\", type text}, {\"plan\", type text}, {\"period_days\", Int64.Type}, {\"target_hours\", type number}, {\"eligible_users\", Int64.Type}, {\"study_users\", Int64.Type}, {\"goal_users\", Int64.Type}, {\"study_hours\", type number}, {\"app_hours\", type number}, {\"study_days\", Int64.Type}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Eligible learners",
+            "expression": "IF ( HASONEVALUE ( 'Period'[period_days] ), SUM ( Goals[eligible_users] ) )",
+            "formatString": "#,0",
+            "description": "Complete selected window only. Blank when multiple periods are combined; cohort and plan cells are disjoint."
+          },
+          {
+            "name": "Learners with study",
+            "expression": "IF ( HASONEVALUE ( 'Period'[period_days] ), SUM ( Goals[study_users] ) )",
+            "formatString": "#,0",
+            "description": "Complete selected window only. Blank when multiple periods are combined; cohort and plan cells are disjoint."
+          },
+          {
+            "name": "Goal achievers",
+            "expression": "IF ( HASONEVALUE ( 'Period'[period_days] ), SUM ( Goals[goal_users] ) )",
+            "formatString": "#,0",
+            "description": "Complete selected window only. Blank when multiple periods are combined; cohort and plan cells are disjoint."
+          },
+          {
+            "name": "Recorded study hours",
+            "expression": "IF ( HASONEVALUE ( 'Period'[period_days] ), SUM ( Goals[study_hours] ) )",
+            "formatString": "#,0.0",
+            "description": "Complete selected window only. Blank when multiple periods are combined; cohort and plan cells are disjoint."
+          },
+          {
+            "name": "App hours",
+            "expression": "IF ( HASONEVALUE ( 'Period'[period_days] ), SUM ( Goals[app_hours] ) )",
+            "formatString": "#,0.0",
+            "description": "Complete selected window only. Blank when multiple periods are combined; cohort and plan cells are disjoint."
+          },
+          {
+            "name": "Recorded study days",
+            "expression": "IF ( HASONEVALUE ( 'Period'[period_days] ), SUM ( Goals[study_days] ) )",
+            "formatString": "#,0",
+            "description": "Complete selected window only. Blank when multiple periods are combined; cohort and plan cells are disjoint."
+          },
+          {
+            "name": "Goal attainment",
+            "expression": "DIVIDE ( [Goal achievers], [Eligible learners] )",
+            "formatString": "0.0%",
+            "description": "Ratio of summed achievers to summed eligible users, including observed zero-activity users under the tracking assumption."
+          },
+          {
+            "name": "Learning participation",
+            "expression": "DIVIDE ( [Learners with study], [Eligible learners] )",
+            "formatString": "0.0%",
+            "description": ""
+          },
+          {
+            "name": "Mean study hours",
+            "expression": "DIVIDE ( [Recorded study hours], [Eligible learners] )",
+            "formatString": "0.00 \"h\"",
+            "description": "Mean per eligible user. Five module counters summed; possible overlap remains in raw results."
+          },
+          {
+            "name": "Mean study days",
+            "expression": "DIVIDE ( [Recorded study days], [Eligible learners] )",
+            "formatString": "0.0",
+            "description": ""
+          },
+          {
+            "name": "Target hours",
+            "expression": "SELECTEDVALUE ( 'Period'[target_hours] )",
+            "formatString": "0 \"h\"",
+            "description": "20 hours over 30 days; 100 hours over 120 or 150 days."
+          },
+          {
+            "name": "30d eligible learners",
+            "expression": "CALCULATE ( [Eligible learners], REMOVEFILTERS ( 'Period' ), 'Period'[period_days] = 30 )",
+            "formatString": "#,0",
+            "description": "Fixed first 30 days. Filters on cohort and plan remain in effect."
+          },
+          {
+            "name": "30d learning participation",
+            "expression": "CALCULATE ( [Learning participation], REMOVEFILTERS ( 'Period' ), 'Period'[period_days] = 30 )",
+            "formatString": "0.0%",
+            "description": "Fixed first 30 days. Filters on cohort and plan remain in effect."
+          },
+          {
+            "name": "30d mean study hours",
+            "expression": "CALCULATE ( [Mean study hours], REMOVEFILTERS ( 'Period' ), 'Period'[period_days] = 30 )",
+            "formatString": "0.00 \"h\"",
+            "description": "Fixed first 30 days. Filters on cohort and plan remain in effect."
+          },
+          {
+            "name": "30d mean study days",
+            "expression": "CALCULATE ( [Mean study days], REMOVEFILTERS ( 'Period' ), 'Period'[period_days] = 30 )",
+            "formatString": "0.0",
+            "description": "Fixed first 30 days. Filters on cohort and plan remain in effect."
+          }
+        ]
+      },
+      {
+        "name": "Retention",
+        "columns": [
+          {
+            "name": "cohort",
+            "dataType": "string",
+            "sourceColumn": "cohort",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "plan",
+            "dataType": "string",
+            "sourceColumn": "plan",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "week_index",
+            "dataType": "int64",
+            "sourceColumn": "week_index",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "eligible_users",
+            "dataType": "int64",
+            "sourceColumn": "eligible_users",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "checkin_users",
+            "dataType": "int64",
+            "sourceColumn": "checkin_users",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "study_users",
+            "dataType": "int64",
+            "sourceColumn": "study_users",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "study_days",
+            "dataType": "int64",
+            "sourceColumn": "study_days",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "study_hours",
+            "dataType": "double",
+            "sourceColumn": "study_hours",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "app_hours",
+            "dataType": "double",
+            "sourceColumn": "app_hours",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "checkin_days",
+            "dataType": "int64",
+            "sourceColumn": "checkin_days",
+            "summarizeBy": "none",
+            "isHidden": true
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Retention",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Folder = if Text.EndsWith(DataFolder, \"/\") or Text.EndsWith(DataFolder, \"\\\") then DataFolder else DataFolder & \"/\",",
+                "    Source = Csv.Document(File.Contents(Folder & \"retention.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"cohort\", type text}, {\"plan\", type text}, {\"week_index\", Int64.Type}, {\"eligible_users\", Int64.Type}, {\"checkin_users\", Int64.Type}, {\"study_users\", Int64.Type}, {\"study_days\", Int64.Type}, {\"study_hours\", type number}, {\"app_hours\", type number}, {\"checkin_days\", Int64.Type}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Weekly eligible learners",
+            "expression": "IF ( HASONEVALUE ( 'Week'[week_index] ), SUM ( Retention[eligible_users] ) )",
+            "formatString": "#,0",
+            "description": "Complete 7-day observation window only; grand totals across weeks are intentionally blank."
+          },
+          {
+            "name": "Weekly check-in learners",
+            "expression": "IF ( HASONEVALUE ( 'Week'[week_index] ), SUM ( Retention[checkin_users] ) )",
+            "formatString": "#,0",
+            "description": "Complete 7-day observation window only; grand totals across weeks are intentionally blank."
+          },
+          {
+            "name": "Weekly learning learners",
+            "expression": "IF ( HASONEVALUE ( 'Week'[week_index] ), SUM ( Retention[study_users] ) )",
+            "formatString": "#,0",
+            "description": "Complete 7-day observation window only; grand totals across weeks are intentionally blank."
+          },
+          {
+            "name": "Weekly study hours",
+            "expression": "IF ( HASONEVALUE ( 'Week'[week_index] ), SUM ( Retention[study_hours] ) )",
+            "formatString": "#,0.0",
+            "description": "Complete 7-day observation window only; grand totals across weeks are intentionally blank."
+          },
+          {
+            "name": "Check-in retention",
+            "expression": "DIVIDE ( [Weekly check-in learners], [Weekly eligible learners] )",
+            "formatString": "0.0%",
+            "description": "At least one logged day in the week. Eligible population changes as observation windows mature."
+          },
+          {
+            "name": "Learning retention",
+            "expression": "DIVIDE ( [Weekly learning learners], [Weekly eligible learners] )",
+            "formatString": "0.0%",
+            "description": "Positive recorded study hours on at least one day in the week; not the same as a login."
+          },
+          {
+            "name": "Check-in learning gap",
+            "expression": "[Check-in retention] - [Learning retention]",
+            "formatString": "0.0%",
+            "description": ""
+          },
+          {
+            "name": "Week 0 learning",
+            "expression": "CALCULATE ( [Learning retention], REMOVEFILTERS ( 'Week' ), 'Week'[week_index] = 0 )",
+            "formatString": "0.0%",
+            "description": "Fixed week 0 since first Pro activation; keeps cohort and plan filters."
+          },
+          {
+            "name": "Week 4 learning",
+            "expression": "CALCULATE ( [Learning retention], REMOVEFILTERS ( 'Week' ), 'Week'[week_index] = 4 )",
+            "formatString": "0.0%",
+            "description": "Fixed week 4 since first Pro activation; keeps cohort and plan filters."
+          },
+          {
+            "name": "Week 8 learning",
+            "expression": "CALCULATE ( [Learning retention], REMOVEFILTERS ( 'Week' ), 'Week'[week_index] = 8 )",
+            "formatString": "0.0%",
+            "description": "Fixed week 8 since first Pro activation; keeps cohort and plan filters."
+          },
+          {
+            "name": "Week 12 learning",
+            "expression": "CALCULATE ( [Learning retention], REMOVEFILTERS ( 'Week' ), 'Week'[week_index] = 12 )",
+            "formatString": "0.0%",
+            "description": "Fixed week 12 since first Pro activation; keeps cohort and plan filters."
+          }
+        ]
+      },
+      {
+        "name": "Modules",
+        "columns": [
+          {
+            "name": "cohort",
+            "dataType": "string",
+            "sourceColumn": "cohort",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "plan",
+            "dataType": "string",
+            "sourceColumn": "plan",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "module",
+            "dataType": "string",
+            "sourceColumn": "module",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "eligible_users",
+            "dataType": "int64",
+            "sourceColumn": "eligible_users",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "module_users",
+            "dataType": "int64",
+            "sourceColumn": "module_users",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "repeat_users",
+            "dataType": "int64",
+            "sourceColumn": "repeat_users",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "module_hours",
+            "dataType": "double",
+            "sourceColumn": "module_hours",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "module_days",
+            "dataType": "int64",
+            "sourceColumn": "module_days",
+            "summarizeBy": "none",
+            "isHidden": true
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Modules",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Folder = if Text.EndsWith(DataFolder, \"/\") or Text.EndsWith(DataFolder, \"\\\") then DataFolder else DataFolder & \"/\",",
+                "    Source = Csv.Document(File.Contents(Folder & \"modules.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"cohort\", type text}, {\"plan\", type text}, {\"module\", type text}, {\"eligible_users\", Int64.Type}, {\"module_users\", Int64.Type}, {\"repeat_users\", Int64.Type}, {\"module_hours\", type number}, {\"module_days\", Int64.Type}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Module eligible learners",
+            "expression": "IF ( HASONEVALUE ( 'Module'[module] ), SUM ( Modules[eligible_users] ) )",
+            "formatString": "#,0",
+            "description": "Only meaningful for one module. Blank total across modules prevents duplicate user counts and overlapping time totals."
+          },
+          {
+            "name": "Module learners",
+            "expression": "IF ( HASONEVALUE ( 'Module'[module] ), SUM ( Modules[module_users] ) )",
+            "formatString": "#,0",
+            "description": "Only meaningful for one module. Blank total across modules prevents duplicate user counts and overlapping time totals."
+          },
+          {
+            "name": "Module repeat learners",
+            "expression": "IF ( HASONEVALUE ( 'Module'[module] ), SUM ( Modules[repeat_users] ) )",
+            "formatString": "#,0",
+            "description": "Only meaningful for one module. Blank total across modules prevents duplicate user counts and overlapping time totals."
+          },
+          {
+            "name": "Module hours",
+            "expression": "IF ( HASONEVALUE ( 'Module'[module] ), SUM ( Modules[module_hours] ) )",
+            "formatString": "#,0.0",
+            "description": "Only meaningful for one module. Blank total across modules prevents duplicate user counts and overlapping time totals."
+          },
+          {
+            "name": "Module days",
+            "expression": "IF ( HASONEVALUE ( 'Module'[module] ), SUM ( Modules[module_days] ) )",
+            "formatString": "#,0",
+            "description": "Only meaningful for one module. Blank total across modules prevents duplicate user counts and overlapping time totals."
+          },
+          {
+            "name": "Module adoption",
+            "expression": "DIVIDE ( [Module learners], [Module eligible learners] )",
+            "formatString": "0.0%",
+            "description": ""
+          },
+          {
+            "name": "Repeat among adopters",
+            "expression": "DIVIDE ( [Module repeat learners], [Module learners] )",
+            "formatString": "0.0%",
+            "description": "At least two distinct days using the module among module adopters during first 30 days."
+          },
+          {
+            "name": "Hours per adopter",
+            "expression": "DIVIDE ( [Module hours], [Module learners] )",
+            "formatString": "0.00 \"h\"",
+            "description": ""
+          },
+          {
+            "name": "Days per adopter",
+            "expression": "DIVIDE ( [Module days], [Module learners] )",
+            "formatString": "0.0",
+            "description": ""
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "Goals_Cohort",
+        "fromTable": "Goals",
+        "fromColumn": "cohort",
+        "fromCardinality": "many",
+        "toTable": "Cohort",
+        "toColumn": "cohort",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "Goals_Plan",
+        "fromTable": "Goals",
+        "fromColumn": "plan",
+        "fromCardinality": "many",
+        "toTable": "Plan",
+        "toColumn": "plan",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "Goals_Period",
+        "fromTable": "Goals",
+        "fromColumn": "period_days",
+        "fromCardinality": "many",
+        "toTable": "Period",
+        "toColumn": "period_days",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "Retention_Cohort",
+        "fromTable": "Retention",
+        "fromColumn": "cohort",
+        "fromCardinality": "many",
+        "toTable": "Cohort",
+        "toColumn": "cohort",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "Retention_Plan",
+        "fromTable": "Retention",
+        "fromColumn": "plan",
+        "fromCardinality": "many",
+        "toTable": "Plan",
+        "toColumn": "plan",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "Retention_Week",
+        "fromTable": "Retention",
+        "fromColumn": "week_index",
+        "fromCardinality": "many",
+        "toTable": "Week",
+        "toColumn": "week_index",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "Modules_Cohort",
+        "fromTable": "Modules",
+        "fromColumn": "cohort",
+        "fromCardinality": "many",
+        "toTable": "Cohort",
+        "toColumn": "cohort",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "Modules_Plan",
+        "fromTable": "Modules",
+        "fromColumn": "plan",
+        "fromCardinality": "many",
+        "toTable": "Plan",
+        "toColumn": "plan",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "Modules_Module",
+        "fromTable": "Modules",
+        "fromColumn": "module",
+        "fromCardinality": "many",
+        "toTable": "Module",
+        "toColumn": "module",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      }
+    ],
+    "expressions": [
+      {
+        "name": "DataFolder",
+        "kind": "m",
+        "expression": "\"SET_DATA_FOLDER\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
+        "description": "Set this to the full local folder containing public aggregate CSVs: data/processed. Do not select the private source directory."
+      }
+    ],
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"DataFolder\", \"Cohort\", \"Plan\", \"Period\", \"Week\", \"Module\", \"Goals\", \"Retention\", \"Modules\"]"
+      }
+    ]
+  }
+}

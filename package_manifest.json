@@ -1,0 +1,389 @@
+{
+  "status": "Portfolio package; native opening, data loading and three-page display verified by author",
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "ae03dd17adf7273fb9bdde64a2d2ee1b46101f38b374066ac09fd253c8a6b433"
+    },
+    {
+      "path": "data/processed/cohort.csv",
+      "sha256": "2d2522660fe015fef1e98ad6fc7e61cc47cae92177b162a6b4a8c0fa53c90b7c"
+    },
+    {
+      "path": "data/processed/fixed_retention.csv",
+      "sha256": "adbbff0e12b52030101f823fa4e1bf1ae219aa589b2da8c44f17a05c5b069e42"
+    },
+    {
+      "path": "data/processed/goal_summary.csv",
+      "sha256": "f934954c3478c0c8704c135b4319795f3399eeb986ef7b068faa3649a7b133a1"
+    },
+    {
+      "path": "data/processed/goals.csv",
+      "sha256": "7e606754a02293fc15e72484d25b84c3fd7379abcd46881038cc3af6bceb67cc"
+    },
+    {
+      "path": "data/processed/module.csv",
+      "sha256": "5d5bbd5f46c74b79609c92d377b3b5e047021b68e7957ec661cf4ad1c390feaa"
+    },
+    {
+      "path": "data/processed/modules.csv",
+      "sha256": "375b66d0cbab6c079a1dfec80f50247055ff0b1cbbff29f1298847b5d6980ada"
+    },
+    {
+      "path": "data/processed/period.csv",
+      "sha256": "f5161d136ecbcc921b9fd2f9926cdb4bdab5a014b86fdf946ea62d2546032c66"
+    },
+    {
+      "path": "data/processed/plan.csv",
+      "sha256": "5c4b6a1b95f056b051f9022d30318a8eecd6068ab19d12a800559cc53b383301"
+    },
+    {
+      "path": "data/processed/retention.csv",
+      "sha256": "bc1127236685362db7dd7a6f92d9f8361434e954eb4e65ed6dbe7de487a453d5"
+    },
+    {
+      "path": "data/processed/week.csv",
+      "sha256": "9f514f8c94039c65d42e1996ea1fa8237777d587dd27c51e665b6a26d77ee756"
+    },
+    {
+      "path": "docs/ANALYSIS_PLAN_VI.md",
+      "sha256": "0d3cb0f35ec35e7d6831c637b702bd9261c947b299ffaf6f3c9bc6b7031c58cd"
+    },
+    {
+      "path": "docs/METRICS.md",
+      "sha256": "d3a54979fb2f5cfd82b54932c4dfe5c8ad85c56b52554bf73d18e6e87642efab"
+    },
+    {
+      "path": "powerbi/build_report.py",
+      "sha256": "3800644e85ac011da13f2e1ba574345550573c952cc8db818c6ed7ffe344e184"
+    },
+    {
+      "path": "powerbi/README.md",
+      "sha256": "00251b7ef1e77d8a49bfe564fcf38cfab3b4adfa68ac0eda8768aa6a0a7e4a79"
+    },
+    {
+      "path": "powerbi/TheCoach.pbip",
+      "sha256": "171e8c050e9416bab43da0314cbbca66b4415a3bf681243209ab9b7a065020ad"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/.platform",
+      "sha256": "3d1e0a520516c693c71c3d55a5efdb70ddde43e6acf91d2a3c6b5c3862ec41f8"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/8e220124401da6e1a028/page.json",
+      "sha256": "64bdac0ba393b06645de17ca419a1f132901d5a74dbd3192af3698c04117a294"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/8e220124401da6e1a028/visuals/077996fb76f19285f08f/visual.json",
+      "sha256": "178920cc90412c43d0d77b383ad4bc3d9553f7651772aa25e4ee2c9ce4ff0562"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/8e220124401da6e1a028/visuals/21a5512ceeb300082ac9/visual.json",
+      "sha256": "9c14f5b68ad29eab77bfd425eca7df50b011a913b7c072ce51c55ecc855e2468"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/8e220124401da6e1a028/visuals/26dcb2ce353be5cfcd03/visual.json",
+      "sha256": "55ffd2dc78a1cb36df26ff7daccb6a81f65c93bfd286509b5d8e31bb3198455e"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/8e220124401da6e1a028/visuals/296bf5736674b52e48d8/visual.json",
+      "sha256": "9abd1619824761548455253631000268e20f7e65376bd0cc03df606dc1383323"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/8e220124401da6e1a028/visuals/3c487e7a26657f4892ae/visual.json",
+      "sha256": "2dff4538ac9f70342ffb9018067251bbd1545f16265819f2c7af580f4cd7c81c"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/8e220124401da6e1a028/visuals/50b3f2b08492d8edbd07/visual.json",
+      "sha256": "05688de3413530d57c318745c67b649496329f96d24cdb24d28c6cf1bb97ded9"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/8e220124401da6e1a028/visuals/597ef2262c52962a19fc/visual.json",
+      "sha256": "1aab266792bc2af9fac77ff27decb0094b1dca0971a84185838beb14b5c236ce"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/8e220124401da6e1a028/visuals/60000fa045c3a92848eb/visual.json",
+      "sha256": "f5b6a83823ebba8a68b87f0152d83b78e655de01053126f8ea0b136de38ca2e0"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/8e220124401da6e1a028/visuals/687545e7a0d60299f172/visual.json",
+      "sha256": "28fde9ac004dcdc37c6013a29cbdb79cd45836a4b5bbe3b151c58c2701b3f676"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/8e220124401da6e1a028/visuals/698c81681ce761d4651d/visual.json",
+      "sha256": "fb34fcd08e3bb27416e47970728703765f379039fec26082d9caac89b535dba8"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/8e220124401da6e1a028/visuals/9b78c97ef4bc75789f19/visual.json",
+      "sha256": "aac8b3a4644a662d6e733a11209daf03e5d359effe701871250a9217b600eff9"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/8e220124401da6e1a028/visuals/a66e32f3ab2ecf26ba41/visual.json",
+      "sha256": "313e10e92909d11d2053e27403a3bf4d128777d28b40c6ae161cbdee5c166740"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/8e220124401da6e1a028/visuals/e5c666b47878d1bbd738/visual.json",
+      "sha256": "a78012ee52f7a412a48edcf688ccdad7089f1cc7420f574c3bd9ae13113a6831"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/8e220124401da6e1a028/visuals/eab5c68ce0bf5e21539c/visual.json",
+      "sha256": "82168e6a1acd57b9d4762b36b5942949116f49c7fa7fbbb48156ffa104dd61f1"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/b5b471c61bb099428bc9/page.json",
+      "sha256": "e38d66238251175f95f5e866fb06674367a7e66bb9a43f366ce51d2be8c725e3"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/b5b471c61bb099428bc9/visuals/0621b274419abc4de922/visual.json",
+      "sha256": "475af4607de3bcbe8450090f04d8cdff28e395bfd85ddcda91133f07b679beb4"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/b5b471c61bb099428bc9/visuals/09e8cfec06834586c708/visual.json",
+      "sha256": "38e5d52aa1e8f8b7158168fb04b32823efe0c9db87c03d202bac78730db5877c"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/b5b471c61bb099428bc9/visuals/1e1bbfc2879f240a6bd7/visual.json",
+      "sha256": "9c9ffdefd083443903f769cff15bfd0eb7c2b10537d20cea6d7dc6f53623d3d7"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/b5b471c61bb099428bc9/visuals/3b8989cd7c6c366982f0/visual.json",
+      "sha256": "d7e4fc0f091d853e25ef9e3304f6c25020bd232f366f181a4ad4de871de3b248"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/b5b471c61bb099428bc9/visuals/3b9267a951f2090cb75f/visual.json",
+      "sha256": "29e2cae499d08290f2442e4f37c17d60221a59b2e18c960f2791158b7035b19d"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/b5b471c61bb099428bc9/visuals/4b3a2d95607ca3cf3c8c/visual.json",
+      "sha256": "f270c79aef915552b51ae23acfcd2d958b1a15eb897cb9e93794d34e24b93e0a"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/b5b471c61bb099428bc9/visuals/5f3406b89bf6e38fc01d/visual.json",
+      "sha256": "870202a5696461492b25503c6d20e33a997c0f647f8a4c7e0f2b1413cb3aa60a"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/b5b471c61bb099428bc9/visuals/6a45331eb028e66f0bb2/visual.json",
+      "sha256": "ab094754f1439e6d2a3634208ea393023f20d1095a561fe89dfbb3deb80dce88"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/b5b471c61bb099428bc9/visuals/80f6db60464668e76f3e/visual.json",
+      "sha256": "4a4f39d2063cc088ea4e514994cd4ec0511078be37ff27839788f0fe891be1df"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/b5b471c61bb099428bc9/visuals/ae0c35a3ea21979329b6/visual.json",
+      "sha256": "79578e72f6dc9a87aaacaeff7ccb12447c3eae3f1b403bfdf84cd66992de0d2a"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/b5b471c61bb099428bc9/visuals/b2475de811faaf7ef4f0/visual.json",
+      "sha256": "a1783d3b17c4f30d29ee0fc134ad09c8c74bddda0ba4c9cf1de41ae35f4d071d"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/b5b471c61bb099428bc9/visuals/b28e5e054c88ea944ce1/visual.json",
+      "sha256": "8e8f4e9026a2d0460ecd37abc759ba5c2edbdd7dfe672bbe77b48b1aa4ff00cb"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/b5b471c61bb099428bc9/visuals/b5acad1b080805f9e193/visual.json",
+      "sha256": "3a62aceb8094b63e8938928cd4f57e0effb0c358bab4ac661ff0085b5e178d9d"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/b5b471c61bb099428bc9/visuals/cc9c3d6b2ebc1bbecfda/visual.json",
+      "sha256": "4364495255bb8b5355b9cb7410072194cababf6f6226df5d9e2e0c852d050354"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/fbc6c1d4c3b6db8fb542/page.json",
+      "sha256": "69f6917baec5bb69c9c5bd46d98bab7a8bd67168cdd90dcadc926365ffde5962"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/fbc6c1d4c3b6db8fb542/visuals/090a15bf1f649525b801/visual.json",
+      "sha256": "14fc4f717af713d91fbd12b2596395cd6e65450e7f7ccb76c3e05639623c45d8"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/fbc6c1d4c3b6db8fb542/visuals/0ecb7b8c7860ff12c810/visual.json",
+      "sha256": "ab49637678212829bedfc5da32808d3d032ea503ac11d4af50a5d5b8b9aa66b0"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/fbc6c1d4c3b6db8fb542/visuals/21bf341bd47cd59f4730/visual.json",
+      "sha256": "4754fb11c1e00646bafc8c9d99ba55954b9c1a698d841a7b3feb578222611cbd"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/fbc6c1d4c3b6db8fb542/visuals/2e01782804c2b0e59cbc/visual.json",
+      "sha256": "52424907b062028a45da48634ff0e34b165e3b93849febe733d5b71ded75b67a"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/fbc6c1d4c3b6db8fb542/visuals/3bd6385844f621421549/visual.json",
+      "sha256": "d0adb2d481bb785a87f8acd90b26fbd744bd689a7d645e02c61a7adc719666cc"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/fbc6c1d4c3b6db8fb542/visuals/76a1698eea92f0b4d05e/visual.json",
+      "sha256": "b59f5a581c2ccbe1e7ec7c101b21c0eabb4ad9099b0dcd9d261790023c4b9187"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/fbc6c1d4c3b6db8fb542/visuals/7c8d7a93f28b5ca678f3/visual.json",
+      "sha256": "3e0410f8fb07f680008dcfd8e08b4ab3b08b1575b6a3a481c35c7e637fb44520"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/fbc6c1d4c3b6db8fb542/visuals/827bbb898baadcdb0cd0/visual.json",
+      "sha256": "cf2389e517de04cf50ad2f8e9e362fa61ef4a60c5a26945ced55b34fcc01a35c"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/fbc6c1d4c3b6db8fb542/visuals/bb37306bf882caeec995/visual.json",
+      "sha256": "74318ac24ab1ae551cd3a03837b994d9b663673d78e1a6f384c0661c93598d17"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/fbc6c1d4c3b6db8fb542/visuals/bd9a38fed01b10ccbf16/visual.json",
+      "sha256": "ec7f124a0ae469130c5b9f98ffd729a2cb735d090ed19371145bb24e007ff084"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/fbc6c1d4c3b6db8fb542/visuals/c5bfe96a4e63aba5afd9/visual.json",
+      "sha256": "507a0c9682cde49d56900786980ce20f4c1a473b39639fe3fc28924dc1f80011"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/fbc6c1d4c3b6db8fb542/visuals/d0b0f72243bc93203be1/visual.json",
+      "sha256": "94dc7da39f5cbcab082664b08eec2ebd5f980c1ccb35a466f5ef46c5900e2af7"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/fbc6c1d4c3b6db8fb542/visuals/fb48a5392491c7cc4304/visual.json",
+      "sha256": "0d67da714e4e38b9f42e849b19cc5e043105400218a4a8610941336c7285f56a"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/fbc6c1d4c3b6db8fb542/visuals/fe86f02c3e16eb08257a/visual.json",
+      "sha256": "d4525715da3aa7993d88f33a860bf52ae886b24297bd7bc6e469ed3ccf37fc47"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/pages/pages.json",
+      "sha256": "3bfd1b8bbefaa73969dfd81733ef1be689b7151fe8c7da59ef058154121bddc3"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/report.json",
+      "sha256": "5f8dd9228bc47afc2dd4134fbb15ef73b80c0723b31fbbc8574dc29289f5ccb0"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition/version.json",
+      "sha256": "2ee3b907dc024849a60d5a9c7983f507da63621819cff7aa3f065211fb33b965"
+    },
+    {
+      "path": "powerbi/TheCoach.Report/definition.pbir",
+      "sha256": "0e6f0df56a5e06dfba315d467c4acb90887865a0dc942cceb34bd86a4a485d05"
+    },
+    {
+      "path": "powerbi/TheCoach.SemanticModel/.platform",
+      "sha256": "98c8814f9b720ad0269e7014eba02be47f9aaf2a7eda829d110da3a6a75d7456"
+    },
+    {
+      "path": "powerbi/TheCoach.SemanticModel/definition.pbism",
+      "sha256": "f7ef451762af9fd0796d55aab081a89b390fbe96b510b2be71dd4fd10daab104"
+    },
+    {
+      "path": "powerbi/TheCoach.SemanticModel/diagramLayout.json",
+      "sha256": "4b49860b82bf7c81c69647c1bd18957ec1e8b1a6dd0eefe2c686571727e52f67"
+    },
+    {
+      "path": "powerbi/TheCoach.SemanticModel/model.bim",
+      "sha256": "1fc4e797352bc969fcc07eb92603eeb47f43be16e168c2ff0bbd93c182f59ab3"
+    },
+    {
+      "path": "README.md",
+      "sha256": "5c8c772ee2e47477811c19eb44aaa300495d28c6e52709519dd5d0bd0fe9cf2d"
+    },
+    {
+      "path": "reports/analysis_evidence.json",
+      "sha256": "9b7e84360ff258abacaa1baa61186894c90b8a40f4aad204e18d3d331e881ad6"
+    },
+    {
+      "path": "reports/COMPLETION_AUDIT.md",
+      "sha256": "48b9627e44eca335d90925cce7e315b981cf99593e01a603f8ac08b2e0487b0b"
+    },
+    {
+      "path": "reports/extended_analysis.json",
+      "sha256": "d495185313deb28ebf7df6777b18fecc7702a4d2655753af3323672862450e5a"
+    },
+    {
+      "path": "reports/figures/01_target_attainment.png",
+      "sha256": "d9afad646d3845554c089204d8402f92125025718e0bf3add7dde7aa92068976"
+    },
+    {
+      "path": "reports/figures/01_target_attainment.svg",
+      "sha256": "21597f42b0afea6348857fa7fd3f55d19505f15bd1e9e3abc98251a22889aaec"
+    },
+    {
+      "path": "reports/figures/02_retention_decomposition.png",
+      "sha256": "8c65477fc24fa64fef9146b0e3542bc0c2bb350a47247a6249f5020b46d61c5c"
+    },
+    {
+      "path": "reports/figures/02_retention_decomposition.svg",
+      "sha256": "ed824b08155e2bee51df79ac57c55d5029b4d8144cfe4fb6624dfb1e2a9d4c37"
+    },
+    {
+      "path": "reports/figures/03_module_adoption.png",
+      "sha256": "705a85fcd6ec6828098b0a497bbfb1f3d8626cdeb37df0dc1e014d5f5f9d5ee5"
+    },
+    {
+      "path": "reports/figures/03_module_adoption.svg",
+      "sha256": "e89d6cc16602bfdd462e3457c2502cb384d63662fd213747294c29033d581caf"
+    },
+    {
+      "path": "reports/figures/04_early_frequency.png",
+      "sha256": "d5eda6dca58307d28d101b18490fe9dc30fad11ae10f8b42756a55a1f608a43c"
+    },
+    {
+      "path": "reports/figures/04_early_frequency.svg",
+      "sha256": "ba28f8f1405292281571f9a31dad9e558f8c5cd8a22ab6f1a8e73b731909fd50"
+    },
+    {
+      "path": "reports/INSIGHTS_VI.md",
+      "sha256": "6ad13d2b1f831a64c75b55c8b3fa748d08c00ea32fef28ec1ea41e178d8c5828"
+    },
+    {
+      "path": "reports/original_powerbi_structure.json",
+      "sha256": "99b8d43030b589de7c46e1cadb3193ffac496aeb98e3abfde30992cb1e4f12c5"
+    },
+    {
+      "path": "reports/powerbi_validation.json",
+      "sha256": "cb96dcffb9ef4dfc4e77ee932902ce90c2c40002a532e3726c908168002f66c9"
+    },
+    {
+      "path": "reports/public_export_validation.json",
+      "sha256": "ccdd8e687273bd2f97323c1601666422dcf9746ad9497ee9d7371dfccea937aa"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "7f5e368f47b672050a7e2088b823ba160921c73407057f6ec0cc5be5ea2780aa"
+    },
+    {
+      "path": "scripts/check_public_exports.py",
+      "sha256": "f73a8e5808435726486db8a09d9092587d0e173ceca02bd6f0c39191fc1d2f17"
+    },
+    {
+      "path": "scripts/package_project.py",
+      "sha256": "c19bac0312b3bb3ab826cdfe9952e3c96f91d97b2865b8c92775922ee32de23b"
+    },
+    {
+      "path": "scripts/validate_powerbi.py",
+      "sha256": "a1c064e6e061d81121d619be22aa8d69599a504179cc29d33b84a6520354a204"
+    },
+    {
+      "path": "sql/01_pipeline.sql",
+      "sha256": "58c602df53bb5859fd077479b3d018e2a15c272a67c230bf4fd3bbecbf3f2cbe"
+    },
+    {
+      "path": "sql/README.md",
+      "sha256": "2271ffd4ba7ba4b893937a72d53bf1fc51027a10ffe8a02dd2381fcd52925604"
+    },
+    {
+      "path": "src/analyze.py",
+      "sha256": "3b2c4217d2a46804ff8c976fb83e0d44b3fcd579096d46282ce84c2b8b5f5490"
+    },
+    {
+      "path": "src/extended_analysis.py",
+      "sha256": "b295d8068e69218f77e268d012e53929a9007148b3e301656b4d41b77543ec96"
+    },
+    {
+      "path": "src/plot_results.py",
+      "sha256": "30d9ff3912bac75b37ade7cb2e14c3a0226f3cbbe20138987a7d4565e32158b0"
+    },
+    {
+      "path": "tests/test_windows.py",
+      "sha256": "11de965cb07702a797f37dc418a726efb020b57b698e0c677a2a1451f8b38493"
+    }
+  ]
+}
