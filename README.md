@@ -98,6 +98,6 @@ Opening, data loading and all three pages were verified in Power BI Desktop. SQL
 
 ## Attribution and data access
 
-Nguyễn Đức Việt contributed data analysis to my team submission for Product Pioneer Candidate 2024 and used Power BI during the competition. This repository is a subsequent portfolio extension with reproducible SQL/Python and revised measurement. It should not be presented as the exact original competition analysis or as a deployed product improvement.
+I contributed data analysis to my team submission for Product Pioneer Candidate 2024 and used Power BI during the competition. This repository is a subsequent portfolio extension with reproducible SQL/Python and revised measurement. It should not be presented as the exact original competition analysis or as a deployed product improvement.
 
 The original PBIX and source data remain outside the public package. No license or permission to redistribute competition data is implied by this repository. Code and methodology can be reviewed independently; reproduction requires authorized access to the source files.
