@@ -2,10 +2,10 @@
 
 An analysis of how paid learners accumulate recorded study time after their first Pro activation. The project examines the 20-hour first-month target, longer-term accumulation, retention and module usage. Product solutions are outside the current scope.
 
-**Author:** Nguyễn Đức Việt - **Tools:** SQL, Python, Power BI  
+**Author:** My prodcut team, consist of 5 members. My role is Data Analyst - **Tools:** SQL, Python, Power BI  
 **Dataset:** 13,462 paid users and 413,598 daily records, observed through 24 June 2024.
 
-Developed from my data analysis work in the PRODUCKZ team at Product Pioneer Candidate 2024. This portfolio extension revisits the measurement approach and adds reproducible SQL and Python analysis.
+Developed from my data analysis work in my team at Product Pioneer Candidate 2024. This portfolio extension revisits the measurement approach and adds reproducible SQL and Python analysis.
 
 ## Findings
 
@@ -98,6 +98,6 @@ Opening, data loading and all three pages were verified in Power BI Desktop. SQL
 
 ## Attribution and data access
 
-Nguyễn Đức Việt contributed data analysis to the PRODUCKZ submission for Product Pioneer Candidate 2024 and used Power BI during the competition. This repository is a subsequent portfolio extension with reproducible SQL/Python and revised measurement. It should not be presented as the exact original competition analysis or as a deployed product improvement.
+Nguyễn Đức Việt contributed data analysis to my team submission for Product Pioneer Candidate 2024 and used Power BI during the competition. This repository is a subsequent portfolio extension with reproducible SQL/Python and revised measurement. It should not be presented as the exact original competition analysis or as a deployed product improvement.
 
 The original PBIX and source data remain outside the public package. No license or permission to redistribute competition data is implied by this repository. Code and methodology can be reviewed independently; reproduction requires authorized access to the source files.
