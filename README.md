@@ -2,7 +2,7 @@
 
 An analysis of how paid learners accumulate recorded study time after their first Pro activation. The project examines the 20-hour first-month target, longer-term accumulation, retention and module usage. Product solutions are outside the current scope.
 
-**Author:** Nguyễn Đức Việt · **Tools:** SQL, Python, Power BI  
+**Author:** Nguyễn Đức Việt - **Tools:** SQL, Python, Power BI  
 **Dataset:** 13,462 paid users and 413,598 daily records, observed through 24 June 2024.
 
 Developed from my data analysis work in the PRODUCKZ team at Product Pioneer Candidate 2024. This portfolio extension revisits the measurement approach and adds reproducible SQL and Python analysis.
@@ -22,11 +22,11 @@ Developed from my data analysis work in the PRODUCKZ team at Product Pioneer Can
 
 | What you want to see | Start here |
 | --- | --- |
-| Findings and their interpretation | [Analysis report — Vietnamese](reports/INSIGHTS_VI.md) |
-| Interactive dashboard | [Power BI setup guide](powerbi/README.md) · [Download the project](powerbi/TheCoach.pbip) |
-| How the analysis was designed | [Analysis plan — Vietnamese](docs/ANALYSIS_PLAN_VI.md) · [Metric definitions](docs/METRICS.md) |
-| SQL skills | [Pipeline walkthrough](sql/README.md) · [SQL code](sql/01_pipeline.sql) |
-| Python skills | [Data pipeline](src/analyze.py) · [Extended analysis](src/extended_analysis.py) · [Charts](src/plot_results.py) |
+| Findings and their interpretation | [Analysis report - Vietnamese](reports/INSIGHTS_VI.md) |
+| Interactive dashboard | [Power BI setup guide](powerbi/README.md) - [Download the project](powerbi/TheCoach.pbip) |
+| How the analysis was designed | [Analysis plan - Vietnamese](docs/ANALYSIS_PLAN_VI.md) - [Metric definitions](docs/METRICS.md) |
+| SQL skills | [Pipeline walkthrough](sql/README.md) - [SQL code](sql/01_pipeline.sql) |
+| Python skills | [Data pipeline](src/analyze.py) - [Extended analysis](src/extended_analysis.py) - [Charts](src/plot_results.py) |
 
 To open Power BI, download or clone the **whole repository**, not just the `.pbip` file. The report and model folders are required. Included aggregate CSVs let you explore the dashboard without access to the original data.
 
