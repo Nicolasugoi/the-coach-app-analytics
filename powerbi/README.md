@@ -1,26 +1,65 @@
-# Open and verify The Coach report
+# Power BI - Paid Learner Engagement
 
-The editable project contains three PBIR report pages, eight imported tables, nine relationships and 35 DAX measures. `build_report.py` regenerates these definitions; it does not execute DAX or embed source records.
+An interactive report exploring paid learners' study targets, retention and module usage. Power Query prepares the aggregate data, a relational model connects the tables, and DAX measures support comparisons by cohort, plan and observation period.
 
-1. Generate aggregate CSVs using the project Python runner.
-2. In Power BI Desktop with PBIP/PBIR support, open `TheCoach.pbip`.
-3. Open Transform data → Manage parameters. Set `DataFolder` to the full local path of the project's `data/processed` directory. Close and apply, then refresh.
-4. On the Goals page, select First 30 days. With no cohort/plan filter, verify 12,851 eligible learners, 702 achievers, 5.46% attainment and 6.63 mean study hours.
-5. Select a cohort and plan. Check that all visuals on the page respond and that counts agree with the corresponding rows of goals.csv.
-6. On Retention, verify weeks are ordered W00–W12. Each week has its own eligible population; do not compare its cards to the separate fixed-cohort Python chart without matching the denominator.
-7. On Modules, verify Onion adoption 93.74% and repeat among adopters 89.12% with no filters. Module-selection changes module charts; top cards intentionally summarize all learning.
-8. Confirm no clipped text, unexpected blanks, errors or broken interactions on all three pages. Capture screenshots only after this native check.
+## Files
 
-Goals measures return blank across multiple selected periods to prevent duplicate-person totals. Module totals and cross-week totals are guarded for the same reason. Select a single period to populate goals cards.
+- [TheCoach.pbix](TheCoach.pbix): the report, including its data model, measures and three dashboard pages.
+- [TheCoach_template.pbit](TheCoach_template.pbit): a reusable template containing queries, model definitions, measures and report pages. It requires a local data source when opened.
 
-## Verification status
+## Report development
 
-- 51 report/project JSON documents validated against official Microsoft schemas.
-- Visual field bindings and model relationship bindings checked.
-- model.bim successfully deserialized using Microsoft.AnalysisServices.Tabular 19.94.1.1; eight tables were read.
-- The author confirmed successful Desktop opening and data loading after configuring DataFolder on 24 October 2026.
-- The author confirmed that all three rendered pages display normally after Close & Apply. Individual DAX measures have not been independently queried.
+### 1. Import and prepare data with Power Query
 
-Python figures elsewhere in the repository are not Power BI screenshots. The original competition PBIX was inspected locally and contains 21 pages and an embedded data model; it is not redistributed.
+Import the aggregate CSVs from `data/processed`. A text parameter named `DataFolder` supplies the folder path. The queries read UTF-8 CSVs, promote headers and assign text, integer and decimal types.
 
-References: [Power BI projects](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview), [report folder and PBIR](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report), [Microsoft schemas](https://github.com/microsoft/json-schemas).
+The model uses three fact tables (`Goals`, `Retention`, `Modules`) and five dimensions (`Cohort`, `Plan`, `Period`, `Week`, `Module`). SQL performs the row-level cleaning and observation-window calculations; Power Query handles report ingestion and data types.
+
+### 2. Model relationships
+
+- `Cohort` and `Plan` filter all three fact tables.
+- `Period` filters `Goals`.
+- `Week` filters `Retention`.
+- `Module` filters `Modules`.
+
+The separate dimensions provide consistent slicers while respecting the different grains of the fact tables. People must not be summed across overlapping windows, weeks or modules.
+
+### 3. Calculate metrics with DAX
+
+Measures recompute ratios within the selected filter context rather than average percentages from separate cohorts. Key measures include:
+
+```dax
+Eligible learners =
+IF (
+    HASONEVALUE ( 'Period'[period_days] ),
+    SUM ( Goals[eligible_users] )
+)
+
+Goal attainment =
+DIVIDE ( [Goal achievers], [Eligible learners] )
+
+Mean study hours =
+DIVIDE ( [Recorded study hours], [Eligible learners] )
+
+Target hours =
+SELECTEDVALUE ( 'Period'[target_hours] )
+```
+
+The period guard prevents adding the same users across different target windows. Some measures intentionally return blank when the selection would produce an ambiguous denominator.
+
+### 4. Design the dashboard pages
+
+| Page | Analytical purpose | Report elements |
+| --- | --- | --- |
+| Goal Attainment | Compare recorded study with the target for each complete observation window | Cohort attainment bars, study/target comparison, KPI cards, denominator table, period/cohort/plan slicers |
+| Retention: Showing up vs Learning | Distinguish returning to the app from recorded learning | Weekly lines, eligible-population table, cohort matrix and week/cohort/plan slicers |
+| Module adoption and repeat learning | Separate module reach from repeat usage | Adoption/repeat bars, usage-depth table, KPI cards and module/cohort/plan slicers |
+
+Slicers allow comparisons across cohorts and plans. KPI cards highlight the main results, while supporting tables show the counts behind each rate.
+
+## Open and refresh
+
+1. Open the PBIX, or open the PBIT to create a new report.
+2. Set `DataFolder` to the absolute path of this repository's `data/processed` folder. For an existing report, use **Transform data → Manage parameters**.
+3. Apply changes and refresh using the CSVs in `data/processed`.
+4. Select one period on the goals page, then use cohort and plan filters. Inspect the accompanying count table before comparing rates.
