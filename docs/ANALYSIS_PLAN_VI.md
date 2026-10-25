@@ -27,6 +27,6 @@ Phạm vi gồm phân tích hành vi và mức độ đạt mục tiêu. Chưa �
 
 ## Phân công công cụ
 
-SQL chịu trách nhiệm dữ liệu chuẩn hóa, cửa sổ quan sát, cohort, tổng hợp và chuỗi ngày học. Python chịu trách nhiệm đọc nguồn, kiểm chứng độc lập, phân tích độ nhạy và biểu đồ. Power BI dùng dữ liệu tổng hợp, quan hệ giữa bảng, Power Query và DAX để khám phá kết quả theo cohort/gói/cửa sổ.
+Hai nhánh chạy độc lập từ cùng dữ liệu gốc. Nhánh SQL tự nhập nguồn, chuẩn hóa, kiểm tra chất lượng, tạo cửa sổ quan sát, cohort, tổng hợp và chuỗi ngày học, rồi xuất CSV cho Power BI. Power BI dùng Power Query, quan hệ giữa bảng và DAX để khám phá kết quả theo cohort/gói/cửa sổ. Nhánh Python tự đọc nguồn, khám phá, tính chỉ số, phân tích độ nhạy và vẽ biểu đồ; không đọc kết quả SQL hay tạo file Power BI. Đối chiếu kết quả giữa hai nhánh là bước kiểm chứng, không phải điều kiện chạy.
 
-Đầu ra công khai chỉ gồm dữ liệu tổng hợp. File nguồn, bản ghi theo người và file Power BI gốc chứa dữ liệu không nằm trong gói GitHub.
+Đầu ra công khai chỉ gồm dữ liệu tổng hợp. Dữ liệu gốc được giữ ở bản làm việc cục bộ và loại khỏi ZIP công khai; `.gitignore` không theo dõi thư mục raw. PBIX/PBIT trong portfolio là báo cáo hiện tại dùng dữ liệu tổng hợp, không phải file thi gốc.

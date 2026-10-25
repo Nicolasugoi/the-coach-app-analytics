@@ -18,7 +18,7 @@ Activation day is day 0. Windows are inclusive: day 0–29, day 0–119, day 0�
 
 `age` contains onboarding categories and is not a continuous age measure. `motivation` is self-reported; retain Other. `total_complete_lesson` counts communication lessons, not all app lessons. `active_at` is the earliest Pro activation across purchases. `expire_date` alone cannot reconstruct subscription history.
 
-Source `communicate_roadmap` corresponds to the supplied dictionary's `communication_roadmap`. The second `check_in_date` column is a day component; pandas names it `check_in_date.1`, and the runner renames it `check_in_day`. Redundant date parts are checked separately.
+Source `communicate_roadmap` corresponds to the supplied dictionary's `communication_roadmap`. The second `check_in_date` column is a day component. The SQL import names it `check_in_day`; pandas independently reads it as `check_in_date.1`. Redundant date parts are checked separately.
 
 Ratios use sums of counts rather than averages of percentages. People are not additive across weeks, modules or observation windows. Median hours must be recomputed from individual values; do not average subgroup medians. The public model intentionally omits subgroup medians.
 
